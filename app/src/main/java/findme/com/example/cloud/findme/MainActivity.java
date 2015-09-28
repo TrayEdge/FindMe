@@ -11,6 +11,7 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -44,7 +45,7 @@ public class MainActivity extends AppCompatActivity implements
 
         setContentView(LAYOUT);
         fragmentManager =getSupportFragmentManager();
-
+        initDrawerLayout();
 
         initToolBar();
         initTabs();
@@ -96,6 +97,13 @@ public class MainActivity extends AppCompatActivity implements
         mGoogleApiClient.connect();
     }
 
+    private void initDrawerLayout() {
+        DrawerLayout drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(this,
+                drawerLayout,toolbar,
+                R.string.open,
+                R.string.close);
+        drawerLayout.setDrawerListener(actionBarDrawerToggle);}
     @Override
     public void onConnected(Bundle bundle) {
         Location mLastLocation = LocationServices.FusedLocationApi.getLastLocation(

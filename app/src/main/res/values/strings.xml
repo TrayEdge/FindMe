@@ -8,5 +8,7 @@
     <string name="location">Location</string>
     <string name="latitude_pref">Latitude</string>
     <string name="longitude_pref">Longitude</string>
+    <string name="open">Open</string>
+    <string name="close">Close</string>
 
 </resources>
